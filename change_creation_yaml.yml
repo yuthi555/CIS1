@@ -49,4 +49,4 @@
         change_request: "{{ new_change.record.number }}"
     register: new_change_task
   - debug:
-      msg: "New change has been created : {{ new_change_task.record.number }} "
+      msg: "New change has been created : {{ new_change_task.record.number }} " hello
