@@ -6,6 +6,11 @@
   tasks:
   - name: Create a change ticket in SNOW
     snow_record:
+      instance: dev57831
+      password: Swiftdzire@0587
+      state: present
+      table: change_request
+      username: admin
       data:
         u_environment: "{{item.Environment}}"
         cmdb_ci: "{{item.CI}}"
@@ -26,14 +31,9 @@
         u_product_approval: '.Abraham Lincoln'
         u_sr_director_approval: '.Adela Cervantsz'
         u_vp_approval: '.Barbara Hindley'
-      instance: dev57831
-      password: Swiftdzire@0587
-      state: present
-      table: change_request
-      username: admin
     with_items:
         - "{{ serverinventory }}"
-    register: new_change_request
+    register: new_change
   - debug:
       msg: "New change has been created : {{ new_change.record.number }} "
   - name: test change
